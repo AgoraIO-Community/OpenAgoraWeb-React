@@ -46,7 +46,7 @@ npm run build
 ```
 
 
-## Connect Us
+## Contact Us
 - You can find full API document at [Document Center](https://docs.agora.io/en/)
 - You can file bugs about this demo at issue
 
