@@ -89,8 +89,24 @@
       "react-app"
     ]
   },
-  "homepage": "",
+  "homepage": "https://github.com/AgoraIO/OpenAgoraWeb-React#readme",
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "main": "/src/index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgoraIO/OpenAgoraWeb-React.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "AgoraSDK",
+    "VideoCall"
+  ],
+  "author": "menthays",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AgoraIO/OpenAgoraWeb-React/issues"
   }
 }
