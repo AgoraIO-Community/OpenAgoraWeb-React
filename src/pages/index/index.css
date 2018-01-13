@@ -98,6 +98,21 @@
     transition: box-shadow .1s ease-in-out;
 }
 
+.dropdown.is-active .dropdown-menu {
+    animation: dropdown .25s ease-in-out
+}
+
+@keyframes dropdown{
+    from {
+        opacity: 0;
+        transform: scale(.92) translate(0, -4px)
+    }
+    to {
+        opacity: 1;
+        transform: scale(none) translate(none)
+    }
+}
+
 #advancedProfile {
     width: 105px;
     font-size: 12px;
