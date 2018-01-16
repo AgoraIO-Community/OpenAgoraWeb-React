@@ -27,7 +27,7 @@ First, create a developer account at [Agora.io](https://dashboard.agora.io/signi
 Update "Agora.config.js" in "/src/library/" with your App ID.
 
 ``` javascript
-export const AOGRA_APP_ID = 'abcdefg'
+export const AGORA_APP_ID = 'abcdefg'
 ```
 
 Then download our SDK 'AgoraRTC-*.js', rename it to 'AgoraRTC.js' and put it under the path '/src/library/'. 
