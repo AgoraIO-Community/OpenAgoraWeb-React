@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Cookies from 'js-cookie'
 
-import {AOGRA_APP_ID} from '../../library/Agora.config.js'
+import {AGORA_APP_ID} from '../../library/Agora.config.js'
 import './meeting.css'
 import AgoraVideoCall from '../../components/AgoraVideoCall'
 
@@ -15,11 +15,11 @@ class Meeting extends React.Component {
         this.baseMode = Cookies.get('baseMode') || 'avc'
         if (this.baseMode === 'avc') {
             // agora video call
-            this.appId = AOGRA_APP_ID
+            this.appId = AGORA_APP_ID
         }
         else {
             // agora live (to be done)
-            this.appId = AOGRA_APP_ID
+            this.appId = AGORA_APP_ID
         }
         this.uid = undefined
 
