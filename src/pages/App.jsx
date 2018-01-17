@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import 'bulma/css/bulma.css'
 
 import './App.css'

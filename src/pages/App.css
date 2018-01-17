@@ -10,7 +10,11 @@ dark blue #124A63;
 grey #637C8E
 
 */
-html, body, #root, .full {
+
+html,
+body,
+#root,
+.full {
   height: 100%;
   min-height: 100%;
   font-size: 14px;
@@ -21,7 +25,8 @@ img {
   max-width: 100%;
 }
 
-.ag-header, .ag-footer {
+.ag-header,
+.ag-footer {
   /* flex-basis: 70px; */
   width: 100%;
   opacity: .8;
@@ -42,7 +47,7 @@ img {
   border-radius: 19px!important;
 }
 
-.ag-href{
+.ag-href {
   color: #FFF;
   cursor: pointer;
 }
