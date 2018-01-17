@@ -292,6 +292,12 @@ class AgoraCanvas extends React.Component {
   }
 
   addStream = (stream, push = false) => {
+    let repeatition = this.state.streamList.some(item => {
+      return item.getId() === stream.getId()
+    })
+    if (repeatition) {
+      return
+    }
     if (push) {
       this.setState({
         streamList: this.state.streamList.concat([stream])
