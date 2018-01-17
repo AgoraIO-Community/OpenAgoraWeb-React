@@ -3,6 +3,7 @@ import * as Cookies from 'js-cookie'
 
 import './meeting.css'
 import AgoraVideoCall from '../../components/AgoraVideoCall'
+import { AGORA_APP_ID } from '../../library/Agora.config.js'
 
 class Meeting extends React.Component {
   constructor(props) {
@@ -12,13 +13,17 @@ class Meeting extends React.Component {
       this.transcode = Cookies.get('transcode') || 'interop',
       this.attendeeMode = Cookies.get('attendeeMode') || 'video',
       this.baseMode = Cookies.get('baseMode') || 'avc'
+    if (AGORA_APP_ID) {
+      alert('Wrong AppID!')
+      return
+    }
     if (this.baseMode === 'avc') {
       // agora video call
-      this.appId = '74a0b7bb5d3e47c7abca0533d17b0afa'
+      this.appId = AGORA_APP_ID
     }
     else {
       // agora live
-      this.appId = 'f4637604af81440596a54254d53ade20'
+      this.appId = AGORA_APP_ID
     }
     this.uid = undefined
 
