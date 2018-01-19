@@ -16,7 +16,7 @@ Channel Name  |  As you please
 - Disable/Enable video and audio
 - Two kinds of layout
 - Hide remote window
-- Share screen (Install [chrome extension](https://chrome.google.com/webstore/detail/agora-web-screensharing/minllpmhdgpndnkomcoccfekfegnlikg?utm_source=chrome-ntp-icon) first.)
+- <del>Share screen (Install [chrome extension](https://chrome.google.com/webstore/detail/agora-web-screensharing/minllpmhdgpndnkomcoccfekfegnlikg?utm_source=chrome-ntp-icon) first.)</del>
 - Leave the room
 
 
