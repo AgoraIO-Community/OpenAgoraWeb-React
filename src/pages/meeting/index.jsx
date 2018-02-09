@@ -8,7 +8,7 @@ import { AGORA_APP_ID } from '../../library/Agora.config.js'
 class Meeting extends React.Component {
   constructor(props) {
     super(props)
-    this.videoProfile = (Cookies.get('videoProfile')).split(',')[0] || '480p_4',
+    this.videoProfile = (Cookies.get('videoProfile')&&Cookies.get('videoProfile').split(',')[0]) || '480p_4',
       this.channel = Cookies.get('channel') || 'test',
       this.transcode = Cookies.get('transcode') || 'interop',
       this.attendeeMode = Cookies.get('attendeeMode') || 'video',
