@@ -13,7 +13,7 @@ class Meeting extends React.Component {
       this.transcode = Cookies.get('transcode') || 'interop',
       this.attendeeMode = Cookies.get('attendeeMode') || 'video',
       this.baseMode = Cookies.get('baseMode') || 'avc'
-    if (AGORA_APP_ID) {
+    if (!AGORA_APP_ID) {
       alert('Wrong AppID!')
       return
     }
