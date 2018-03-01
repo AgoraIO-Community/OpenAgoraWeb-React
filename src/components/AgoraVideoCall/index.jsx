@@ -4,7 +4,6 @@ import { merge } from 'lodash'
 import './canvas.css'
 import '../../assets/fonts/css/icons.css'
 
-const AgoraRTC = require('../../library/AgoraRTC')
 const tile_canvas = {
   '1': ['span 12/span 24'],
   '2': ['span 12/span 12/13/25', 'span 12/span 12/13/13'],
@@ -53,11 +52,12 @@ class AgoraCanvas extends React.Component {
             this.client.publish(this.localStream, err => {
               console.log("Publish local stream error: " + err);
             })
-            this.setState({ readyState: true })
           }
+          this.setState({ readyState: true })
         },
           err => {
             console.log("getUserMedia failed", err)
+            this.setState({ readyState: true })
           })
       })
     })
@@ -140,6 +140,16 @@ class AgoraCanvas extends React.Component {
     else if (this.state.displayMode === 'share') {
 
     }
+  }
+
+  componentWillUnmount () {
+    this.client && this.client.unpublish(this.localStream)
+    this.localStream && this.localStream.close()
+    this.client && this.client.leave(() => {
+      console.log('Client succeed to leave.')
+    }, () => {
+      console.log('Client failed to leave.')
+    })
   }
 
   render() {

@@ -24,7 +24,7 @@ Channel Name  |  As you please
 ## Running the App
 First, create a developer account at [Agora.io](https://dashboard.agora.io/signin/), and obtain an App ID.
 
-Update "Agora.config.js" in "/src/library/" with your App ID.
+Update "agora.config.js" in "/src" with your App ID.
 
 ``` javascript
 export const AGORA_APP_ID = 'abcdefg'

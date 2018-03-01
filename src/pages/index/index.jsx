@@ -317,7 +317,7 @@ class AdvancedOptions extends React.Component {
   render() {
     const options = Object.entries(RESOLUTION_ARR).map((item, index) => {
       return (
-        <option key={index} value={item[0].split(",")[0]}>{item[1][0]}x {item[1][1]}, {item[1][2]}fps</option>
+        <option key={index} value={item[0].split(",")[0]}>{item[1][0]}x {item[1][1]}, {item[1][2]}fps, {item[1][3]}kbps</option>
       )
     })
     return (
