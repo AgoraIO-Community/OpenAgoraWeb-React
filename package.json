@@ -1,6 +1,6 @@
 {
   "name": "open_agora_web_react",
-  "version": "2.1",
+  "version": "2.1.0",
   "description": "Integrate Agora SDK with ReactJs to realize a simple video chat app",
   "dependencies": {
     "autoprefixer": "7.1.6",
