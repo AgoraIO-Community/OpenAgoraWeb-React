@@ -1,7 +1,7 @@
 # Agora Video Call
 
 This repository gives you an example about how to integrate AgoraRTC SDK with ReactJs to realize a simple video chat application (just like Skype).
-You can find Vue version [here](https://github.com/AgoraIO/OpenAgoraWeb-Vue)
+You can find **Vue** version [here](https://github.com/AgoraIO/OpenAgoraWeb-Vue)
 
 With this sample app, you can:
 
@@ -31,7 +31,7 @@ Update "agora.config.js" in "/src" with your App ID.
 export const AGORA_APP_ID = 'abcdefg'
 ```
 
-<del>Then download our SDK 'AgoraRTC-*.js', rename it to 'AgoraRTC.js' and put it under the path '/src/library/'./<del>
+<del>Then download our SDK 'AgoraRTC-*.js', rename it to 'AgoraRTC.js' and put it under the path '/src/library/'.</del>
 Now we use cdn to get sdk. You do not have to download it by yourself any more. 
 
 Run npm to install dependency.

@@ -1,6 +1,6 @@
 {
   "name": "open_agora_web_react",
-  "version": "0.2.1",
+  "version": "2.1",
   "description": "Integrate Agora SDK with ReactJs to realize a simple video chat app",
   "dependencies": {
     "autoprefixer": "7.1.6",
@@ -104,7 +104,7 @@
     "AgoraSDK",
     "VideoCall"
   ],
-  "author": "menthays",
+  "author": "Hao Yang <haoyang@agora.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AgoraIO/OpenAgoraWeb-React/issues"
