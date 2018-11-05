@@ -820,7 +820,7 @@ The Meeting page is managed by the [src/pages/meeting/index.jsx](src/pages/meeti
 
 The `Meeting` class defines the layout and controls for the meeting page.
 
-```
+```Javascript
 import React from 'react'
 import * as Cookies from 'js-cookie'
 
@@ -889,7 +889,7 @@ The main section contains the `AgoraVideoCall` component, and sets the propertie
 
 The footer section contains a `Powered By Agora` text, and Agora contact information.
 
-```JavaScript
+```
   render() {
     return (
       <div className="wrapper meeting">
