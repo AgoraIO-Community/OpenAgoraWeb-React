@@ -59,13 +59,13 @@ npm install
 
 5. Build and run the project:
 
-	- Use `start` for a local build. View the application in your browser with the URL `http://localhost:3000`
+Use `start` for a local build. View the application in your browser with the URL `http://localhost:3000`
 
 ```bash
 # serve with hot reload at localhost:3000
 npm run start
 ```
-	- Use `build` for a production version with minification.
+Use `build` for a production version with minification.
 
 ```bash
 # build for production with minification
