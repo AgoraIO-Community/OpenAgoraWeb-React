@@ -36,7 +36,7 @@ To build and run the sample application, you must obtain an app ID:
 
 1. Edit the [`src/agora.config.js`](src/agora.config.js) file. In the `AGORA_APP_ID` declaration, update `Your App ID` with your app ID.
 
-	``` JavaScript
+```JavaScript
 export const AGORA_APP_ID = 'Your App ID'
 ```
 
@@ -46,13 +46,13 @@ export const AGORA_APP_ID = 'Your App ID'
 		
 3. Open the terminal and navigate to your project folder.
 
-	``` bash
+``` bash
 cd path/to/project
 ```
 
 4. Use `npm` to install the dependencies:
 
-	``` bash
+``` bash
 # install dependency
 npm install
 ```
@@ -61,13 +61,13 @@ npm install
 
 	- Use `start` for a local build. View the application in your browser with the URL `http://localhost:3000`
 
-		```bash
+```bash
 # serve with hot reload at localhost:3000
 npm run start
 ```
 	- Use `build` for a production version with minification.
 
-		```bash
+```bash
 # build for production with minification
 npm run build
 ```
@@ -108,7 +108,7 @@ Class|Description
 [`BaseOptions`](#add-the-baseoptions-class)|Chooser for the type of call.
 [`AdvancedOptions`](#add-the-advancedoptions-class)|Chooser for video transcoding.
 
-``` JavaScript
+```JavaScript
 import React from 'react'
 import * as Cookies from 'js-cookie'
 
@@ -141,7 +141,7 @@ The `Index` class is main class for the index page.
 
 ![images/index.jpg](images/index.jpg)
 
-``` JavaScript
+```JavaScript
 class Index extends React.Component {
   
   ...
@@ -166,7 +166,7 @@ Property|Value|Description
 `attendeeMode`|`video`|Indicates the current connection mode for the attendee.
 `videoProfile`|`480p_4`|Indicates the current video profile setting.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this.state = {
@@ -188,7 +188,7 @@ The `componentDidMount()` method initializes event listener for keyboard presses
 
 When a keyboard button is pressed, ensure `e.keyCode` is the **Enter** / **Return** key before executing `this.handleJoin()`.
 
-``` JavaScript
+```JavaScript
   componentDidMount() {
     window.addEventListener('keypress', (e) => {
       e.keyCode === 13 && this.handleJoin()
@@ -198,7 +198,7 @@ When a keyboard button is pressed, ensure `e.keyCode` is the **Enter** / **Retur
 
 The `handleChannel()` method updates the `channel` and `joinBtn` state properties.
 
-``` JavaScript
+```JavaScript
   /**
    * 
    * @param {String} val 0-9 a-z A-Z _ only 
@@ -219,7 +219,7 @@ The `handleJoin()` method initiates joining the channel.
 3. Set cookies for the state properties `channel`, `baseMode`, `transcode`, `attendeeMode`, and `videoProfile`.
 4. Transfer the user to the `meeting` page.
 
-``` JavaScript
+```JavaScript
   handleJoin = () => {
     if (!this.state.joinBtn) {
       return
@@ -245,7 +245,7 @@ The `ag-main` section contains the key login elements for the layout. The remain
 The `ag-footer` section contains a `Powered By Agora` text and Agora contact information.
 
 
-``` JavaScript
+```JavaScript
   render() {
     return (
       <div className="wrapper index">
@@ -273,7 +273,7 @@ The `ag-footer` section contains a `Powered By Agora` text and Agora contact inf
 
 The `login-header` section contains the Agora logo, application title, and the application motto / subtitle.
 
-``` JavaScript
+```JavaScript
             <div className="login-header">
               <img src={require('../../assets/images/ag-logo.png')} alt="" />
               <p className="login-title">AgoraWeb v2.1</p>
@@ -287,7 +287,7 @@ The `login-body` section is divided into three main sections:
 - The call options
 - The attendee mode options
 
-``` JavaScript
+```JavaScript
             <div className="login-body">
               <div className="columns">
                 <div className="column is-12">
@@ -320,7 +320,7 @@ The `login-body` section is divided into three main sections:
 
 The first section is a text input box for the room name / channel. The `InputChannel` element is nested within two `div` elements. The text input has `onChange` event listener which invokes the `this.handleChannel` method.
 
-``` JavaScript
+```JavaScript
               <div className="columns">
                 <div className="column is-12">
                   <InputChannel onChange={this.handleChannel} placeholder="Input a room name here"></InputChannel>
@@ -337,7 +337,7 @@ The `AdvancedOptions` component has two event listeners:
 - An `onRadioChange` event listener which updates the `transcode` state value.
 - An `OnSelectChange` event listener which updates the `videoProfile` state value.
 
-``` JavaScript
+```JavaScript
               <div className="columns">
                 <div className="column is-7">
                   <BaseOptions
@@ -355,7 +355,7 @@ The `AdvancedOptions` component has two event listeners:
 
 The third section is contains a set of radio dials and supporting images and text labels. Each radio `input` element has an `onChange` event listener which updates the `attendeeMode` state value.
 
-``` JavaScript
+```JavaScript
               <div className="columns">
                 <div className="column">
                   <div id="attendeeMode" className="control">
@@ -398,7 +398,7 @@ The third section is contains a set of radio dials and supporting images and tex
 
 The footer for the `ag-main` section contains a **Join** button, designated by an `a` element. The **Join** button has an `onClick` event listener which invokes the `this.handleJoin` method. This button is set to enabled / disabled by the `joinBtn` state value.
 
-``` JavaScript
+```JavaScript
             <div className="login-footer">
               <a id="joinBtn"
                 onClick={this.handleJoin}
@@ -412,7 +412,7 @@ The footer for the `ag-main` section contains a **Join** button, designated by a
 
 The `InputChannel` class defines the room channel text input for the index page.
 
-``` JavaScript
+```JavaScript
 class InputChannel extends React.Component {
   
   ...
@@ -428,7 +428,7 @@ class InputChannel extends React.Component {
 
 The `constructor()` method initializes the state properties `errorMsg` and `state` to empty strings.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this.state = {
@@ -444,7 +444,7 @@ The `validate()` method checks the string for the text input and updates the `st
 
 Set both properties to an empty string.
 
-``` JavaScript
+```JavaScript
   validate = (val) => {
     this.setState({
       state: '',
@@ -458,7 +458,7 @@ Set both properties to an empty string.
 
 Ensure the text input value is not empty using `Validator.isNonEmpty`. If the value is empty, update the `errorMsg` and `state` properties to inform the user that the text input should not be empty.
 
-``` JavaScript
+```JavaScript
     if (Validator.isNonEmpty(val.trim())) {
       this.setState({
         errorMsg: 'Cannot be empty!',
@@ -470,7 +470,7 @@ Ensure the text input value is not empty using `Validator.isNonEmpty`. If the va
 
 Ensure the text input value at least `1` character long. If the value is shorter than `1` character, update the `errorMsg` and `state` properties to inform the user that the text input should be longer than `1` character.
 
-``` JavaScript
+```JavaScript
     else if (Validator.minLength(val.trim(), 1)) {
       this.setState({
         errorMsg: 'No shorter than 1!',
@@ -482,7 +482,7 @@ Ensure the text input value at least `1` character long. If the value is shorter
 
 Ensure the text input value `16` characters or shorter. If the value is longer than `16` characters, update the `errorMsg` and `state` properties to inform the user that the text input should no longer than `16` characters.
 
-``` JavaScript
+```JavaScript
     else if (Validator.maxLength(val.trim(), 16)) {
       this.setState({
         errorMsg: 'No longer than 16!',
@@ -494,7 +494,7 @@ Ensure the text input value `16` characters or shorter. If the value is longer t
 
 Ensure the text input value only contains valid characters. If invalid characters are found, update the `errorMsg` and `state` properties to inform the user that the text input should only contain letters, numbers, or the `_` character.
 
-``` JavaScript
+```JavaScript
     else if (Validator.validChar(val.trim())) {
       this.setState({
         state: 'is-danger',
@@ -506,7 +506,7 @@ Ensure the text input value only contains valid characters. If invalid character
 
 If the text input value passes all the validation tests, update the `state` property to `is-success` and return `true`.
 
-``` JavaScript
+```JavaScript
     else {
       this.setState({
         state: 'is-success'
@@ -517,7 +517,7 @@ If the text input value passes all the validation tests, update the `state` prop
 
 The `handleChange()` method is invoked when the text input value is updated. Retrieve the `state` using `this.validate()`. Update the property change for the component using `this.props.onChange()`
 
-``` JavaScript
+```JavaScript
   handleChange = (e) => {
     let state = this.validate(e.target.value)
     this.props.onChange(e.target.value, state)
@@ -530,7 +530,7 @@ The `render()` method displays the UI for the `InputChannel` component.
 
 Set the `validateIcon` value, based on the component's `state` property.
 
-``` JavaScript
+```JavaScript
   render() {
     let validateIcon = ''
     switch (this.state.state) {
@@ -554,7 +554,7 @@ The text `input` element is initialized with the component `placeholder` propert
 
 The validation icon and error message are updated as the text input box value is validated.
 
-``` JavaScript
+```JavaScript
     return (
       <div className="channel-wrapper control has-icons-left">
         <input onInput={this.handleChange}
@@ -579,7 +579,7 @@ The validation icon and error message are updated as the text input box value is
 
 The `BaseOptions` class defines the base options component for the index page.
 
-``` JavaScript
+```JavaScript
 class BaseOptions extends React.Component {
 
   ...
@@ -595,7 +595,7 @@ class BaseOptions extends React.Component {
 
 The `constructor()` method initializes the `_options` array and state properties `active` and `message`.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this._options = [
@@ -624,7 +624,7 @@ The `handleSelect()` method is invoked when a dropdown menu item is selected.
 
 Update the state properties `message` and `active` with the selection values, and trigger the component's `onChange` event listener with `val`.
 
-``` JavaScript
+```JavaScript
   handleSelect = (item) => {
     let msg = item.label
     let val = item.value
@@ -644,7 +644,7 @@ Create the `options` layout variable, by mapping through `this._options`, giving
 
 Add an `onClick` event listener, which triggers the `this.handleSelect()` method for the item selection.
 
-``` JavaScript
+```JavaScript
   render() {
     const options = this._options.map((item, index) => {
       return (
@@ -665,7 +665,7 @@ When the dropdown button `dropdown-trigger` is clicked, set the dropdown menu to
 
 The `options` layout variable populates the items in the dropdown menu.
 
-``` JavaScript
+```JavaScript
     return (
       <div className={this.state.active ? 'dropdown is-active' : 'dropdown'}>
         <div className="dropdown-trigger"
@@ -691,7 +691,7 @@ The `options` layout variable populates the items in the dropdown menu.
 
 The `AdvancedOptions` class defines the advanced options component for the index page.
 
-``` JavaScript
+```JavaScript
 class AdvancedOptions extends React.Component {
   
   ...
@@ -707,7 +707,7 @@ class AdvancedOptions extends React.Component {
 
 The `constructor()` method initializes the state property `active` to `false`.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this.state = {
@@ -720,7 +720,7 @@ The `constructor()` method initializes the state property `active` to `false`.
 
 The `handleRadio()` method invokes the component's `onRadioChange()` method with the target `value`.
 
-``` JavaScript
+```JavaScript
   handleRadio = (e) => {
     this.props.onRadioChange(e.target.value)
   }
@@ -728,7 +728,7 @@ The `handleRadio()` method invokes the component's `onRadioChange()` method with
 
 The `handleSelect()` method invokes the component's `onSelectChange()` method with the target `value`.
 
-``` JavaScript
+```JavaScript
   handleSelect = (e) => {
     this.props.onSelectChange(e.target.value)
   }
@@ -740,7 +740,7 @@ The `render()` method displays the UI for the `AdvancedOptions` component.
 
 Create the `options` layout variable, by mapping through `Object.entries`, returning an `option` element with a specified `key`, `value`, and description for each item.
 
-``` JavaScript
+```JavaScript
   render() {
     const options = Object.entries(RESOLUTION_ARR).map((item, index) => {
       return (
@@ -755,7 +755,7 @@ Create the `options` layout variable, by mapping through `Object.entries`, retur
 
 The `return` contains the layout for the component. The component is enabled / disabled based on the state's `active` property.
 
-``` JavaScript
+```JavaScript
     return (
       <div className={this.state.active ? 'dropdown is-active' : 'dropdown'}>
       		
@@ -767,7 +767,7 @@ The `return` contains the layout for the component. The component is enabled / d
 
 When the dropdown button `dropdown-trigger` is clicked, set the dropdown menu to open/closed by updating the `active` property using `this.setState()`.
 
-``` JavaScript
+```JavaScript
         <div className="dropdown-trigger"
           onClick={() => this.setState({ 'active': !this.state.active })}>
           <a id="advancedProfile" className="ag-rounded button" aria-haspopup="true" aria-controls="advancedOptions">
@@ -782,7 +782,7 @@ The transcoding radio options have an `onChange` event listener to invoke the `t
 
 The video profile selection menu is populated by the `options` layout variable. This menu has an `onChange` event listener which triggers the `this.handleSelect` method.
 
-``` JavaScript
+```JavaScript
         <div className="dropdown-menu" id="advancedOptions" role="menu">
           <div className="dropdown-content">
             <div className="dropdown-item">
@@ -858,7 +858,7 @@ Ensure `this.appId` is valid; otherwise display an `alert()` that an App ID is n
 
 Set `this.uid` to `undefined`.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this.videoProfile = (Cookies.get('videoProfile')).split(',')[0] || '480p_4',
@@ -889,7 +889,7 @@ The main section contains the `AgoraVideoCall` component, and sets the propertie
 
 The footer section contains a `Powered By Agora` text, and Agora contact information.
 
-``` JavaScript
+```JavaScript
   render() {
     return (
       <div className="wrapper meeting">
@@ -947,7 +947,7 @@ import '../../assets/fonts/css/icons.css'
 
 The `tile_canvas` constant defines how to tile the video layout for the call.
 
-``` JavaScript
+```JavaScript
 const tile_canvas = {
   '1': ['span 12/span 24'],
   '2': ['span 12/span 12/13/25', 'span 12/span 12/13/13'],
@@ -961,7 +961,7 @@ const tile_canvas = {
 
 The `AgoraCanvas` class defines the layout and controls for the `AgoraCanvas` component.
 
-``` JavaScript
+```JavaScript
 /**
  * @prop appId uid
  * @prop transcode attendeeMode videoProfile channel baseMode
@@ -979,7 +979,7 @@ export default AgoraCanvas
 
 The `constructor()` method initializes the `client`, `localStream`, `shareClient`, and `shareStream` variables and the state properties `displayMode`, `streamList`, and `readyState`.
 
-``` JavaScript
+```JavaScript
   constructor(props) {
     super(props)
     this.client = {}
@@ -1000,7 +1000,7 @@ The `componentWillMount()` method initializes the Agora RTC engine and joins the
 
 Create the Agora RTC client using `AgoraRTC.createClient()`.
 
-``` JavaScript
+```JavaScript
   componentWillMount() {
     let $ = this.props
     // init AgoraRTC local client
@@ -1017,7 +1017,7 @@ Create the Agora RTC client using `AgoraRTC.createClient()`.
 
 The next section of code occurs within the `join()` method completion.
 
-``` JavaScript
+```JavaScript
     this.client.init($.appId, () => {
       console.log("AgoraRTC client initialized")
       this.subscribeStreamEvents()
@@ -1037,7 +1037,7 @@ The next section of code occurs within the `join()` method completion.
 	- If the initialization is successful, add the local stream using `this.addStream()` and publish the stream using `this.client.publish()`.
 	- If the initialization is not successful, log the error using `console.log()` and update the `readyState` state property.
 
-``` JavaScript
+```JavaScript
         // create local stream
         // It is not recommended to setState in function addStream
         this.localStream = this.streamInit(uid, $.attendeeMode, $.videoProfile)
@@ -1065,7 +1065,7 @@ The `componentDidMount()` method initializes an event listener for the control b
 	2. Add the `active` class to `btnGroup` using `classList.add()`.
 	3. Start a new `2000` millisecond timer using `setTimeout()`, which will remove the `active` class from `btnGroup` using `classList.remove()`.
 
-``` JavaScript
+```JavaScript
   componentDidMount() {
     // add listener to control btn group
     let canvas = document.querySelector('#ag-canvas')
@@ -1088,7 +1088,7 @@ The `componentWillUnmount()` method closes the stream and exits the channel.
 2. If `this.localStream` is valid, close the local stream using `this.localStream.close()`.
 3. If `this.client` is valid, leave the channel using `this.client.leave()` and log the results using `console.log()`.
 
-``` JavaScript
+```JavaScript
   componentWillUnmount () {
     this.client && this.client.unpublish(this.localStream)
     this.localStream && this.localStream.close()
@@ -1106,7 +1106,7 @@ The `componentDidUpdate()` method triggers when the component updates.
 
 Declare `canvas` to reference the updated layout canvas.
 
-``` JavaScript
+```JavaScript
   componentDidUpdate() {
     // rerendering
     let canvas = document.querySelector('#ag-canvas')
@@ -1130,7 +1130,7 @@ For each item in `this.state.streamList`:
 4. Set the `style` attribute using `dom.setAttribute()`, based on if the item is the last element in `this.state.streamList`.
 5. Ensure `item.player.resize` is valid and resize the player using `item.player.resize()`.
 
-``` JavaScript
+```JavaScript
     // pip mode (can only use when less than 4 people in channel)
     if (this.state.displayMode === 'pip') {
       let no = this.state.streamList.length
@@ -1177,7 +1177,7 @@ For each item in `this.state.streamList`:
 4. Set the `style` attribute using `dom.setAttribute()`.
 5. Ensure `item.player.resize` is valid and resize the player using `item.player.resize()`.
 
-``` JavaScript
+```JavaScript
     // tile mode
     else if (this.state.displayMode === 'tile') {
       let no = this.state.streamList.length
@@ -1201,7 +1201,7 @@ For each item in `this.state.streamList`:
 
 If `this.state.displayMode` is in `tbd` mode, do nothing as screen share mode has not been enabled in this sample application.
 
-``` JavaScript
+```JavaScript
     // screen share mode (tbd)
     else if (this.state.displayMode === 'share') {
 
@@ -1212,7 +1212,7 @@ If `this.state.displayMode` is in `tbd` mode, do nothing as screen share mode ha
 
 The `render()` method displays the UI for the `AgoraCanvas`.
 
-``` JavaScript
+```JavaScript
   render() {
   		
   		...
@@ -1222,7 +1222,7 @@ The `render()` method displays the UI for the `AgoraCanvas`.
 
 The `style` constant provides style settings for the layout.
 
-``` JavaScript
+```JavaScript
     const style = {
       display: 'grid',
       gridGap: '10px',
@@ -1237,7 +1237,7 @@ The `videoControlBtn` constant provides a UI button to enable / disable video, i
 
 The button has an `onClick` event listener that invokes the `this.handleCamera` method.
 
-``` JavaScript
+```JavaScript
     const videoControlBtn = this.props.attendeeMode === 'video' ?
       (<span
         onClick={this.handleCamera}
@@ -1252,7 +1252,7 @@ The `audioControlBtn` constant provides a UI button to enable / disable audio, i
 
 The button has an `onClick` event listener that invokes the `this.handleMic` method.
 
-``` JavaScript
+```JavaScript
     const audioControlBtn = this.props.attendeeMode !== 'audience' ?
       (<span
         onClick={this.handleMic}
@@ -1269,7 +1269,7 @@ The button has an `onClick` event listener that invokes the `this.switchDisplay`
 
 This button is disabled if `this.state.streamList.length` is greater than `4`; otherwise it is enabled.
 
-``` JavaScript
+```JavaScript
     const switchDisplayBtn = (
       <span
         onClick={this.switchDisplay}
@@ -1286,7 +1286,7 @@ This button is disabled if `this.state.streamList.length` is greater than `4` or
 
 The button has an `onClick` event listener that invokes the `this.hideRemote` method.
 
-``` JavaScript
+```JavaScript
     const hideRemoteBtn = (
       <span
         className={this.state.streamList.length > 4 || this.state.displayMode !== 'pip' ? "ag-btn disableRemoteBtn disabled" : "ag-btn disableRemoteBtn"}
@@ -1304,7 +1304,7 @@ The button has an `onClick` event listener that invokes the `this.handleExit` me
 This button is enabled if `this.state.readyState` is `true`; otherwise it is disabled.
 
 
-``` JavaScript
+```JavaScript
     const exitBtn = (
       <span
         onClick={this.handleExit}
@@ -1319,7 +1319,7 @@ The `return` provides the layout for the `AgoraCanvas` component.
 
 Add the `exitBtn`, `videoControlBtn`, `audioControlBtn`, `switchDisplayBtn`, and `hideRemoteBtn` layout values in a set of nested `div` elements.
 
-``` JavaScript
+```JavaScript
     return (
       <div id="ag-canvas" style={style}>
         <div className="ag-btn-group">
@@ -1345,7 +1345,7 @@ The `streamInit()` method initializes a video stream.
 3. Create a stream with the configuration using `AgoraRTC.createStream()`.
 4. Set the video profile using `stream.setVideoProfile()` and return the resulting `stream`.
 
-``` JavaScript
+```JavaScript
   streamInit = (uid, attendeeMode, videoProfile, config) => {
     let defaultConfig = {
       streamID: uid,
@@ -1382,7 +1382,7 @@ Event Listener|Description|Execution after trigger
 `stream-subscribed`|Triggers when a stream is subscribed to the client.|Add logs for the stream using `console.log` and add the stream using `rt.addStream()`.
 `stream-removed`|Triggered when a stream is removed from the client.|Add logs for the stream using `console.log` and remove the stream using `rt.removeStream()`.
 
-``` JavaScript
+```JavaScript
   subscribeStreamEvents = () => {
     let rt = this
     rt.client.on('stream-added', function (evt) {
@@ -1430,7 +1430,7 @@ For each stream in `this.state.streamList`, find the stream ID that matches `uid
 3. Create a `tempList` object for the list of streams and remove the current stream using `tempList.splice()`.
 4. Update the `streamList` state property with `tempList`.
 
-``` JavaScript
+```JavaScript
   removeStream = (uid) => {
     this.state.streamList.map((item, index) => {
       if (item.getId() === uid) {
@@ -1458,7 +1458,7 @@ If `push` is `true`, append `stream` to the stream list using `this.state.stream
 
 Otherwise, prepend `stream` to the stream list using `[stream].concat()` and update the `streamList` state property.
 
-``` JavaScript
+```JavaScript
   addStream = (stream, push = false) => {
     let repeatition = this.state.streamList.some(item => {
       return item.getId() === stream.getId()
@@ -1487,7 +1487,7 @@ The `handleCamera()` method enables / disables the camera.
 1. Update the class for the trigger target using `e.currentTarget.classList.toggle()`.
 2. Disable or enable the video using `this.localStream.disableVideo()` or `this.localStream.enableVideo()` based on `this.localStream.isVideoOn()`.
 
-``` JavaScript
+```JavaScript
   handleCamera = (e) => {
     e.currentTarget.classList.toggle('off')
     this.localStream.isVideoOn() ?
@@ -1500,7 +1500,7 @@ The `handleMic()` method enables / disables the microphone / audio.
 1. Update the class for the trigger target using `e.currentTarget.classList.toggle()`.
 2. Disable or enable the audio using `this.localStream.disableAudio()` or `this.localStream.enableAudio()` based on `this.localStream.isAudioOn()`.
 
-``` JavaScript
+```JavaScript
   handleMic = (e) => {
     e.currentTarget.classList.toggle('off')
     this.localStream.isAudioOn() ?
@@ -1521,7 +1521,7 @@ Current Display Mode Value|New Display Mode Value
 `share`|No change
 Other|Log an error using `console.error()`.
 
-``` JavaScript
+```JavaScript
   switchDisplay = (e) => {
     if (e.currentTarget.classList.contains('disabled') || this.state.streamList.length <= 1) {
       return
@@ -1550,7 +1550,7 @@ Ensure the trigger target is not disabled `e.currentTarget.classList.contains()`
 3. Update `list` with the array of all layout items matching the ID using `Array.from()`.
 4. For each item in `list`, update the display using `item.style.display`. The value of the `display` is `none` if `item.style.display` equals `none`; otherwise the value is `block`.
 
-``` JavaScript
+```JavaScript
   hideRemote = (e) => {
     if (e.currentTarget.classList.contains('disabled') || this.state.streamList.length <= 1) {
       return
@@ -1581,7 +1581,7 @@ Ensure the trigger target is not disabled `e.currentTarget.classList.contains()`
 5. Set `this.client` and `this.localStream` to `null`.
 6. Redirect the window to the index page using `window.location.hash`.
 
-``` JavaScript
+```JavaScript
   handleExit = (e) => {
     if (e.currentTarget.classList.contains('disabled')) {
       return
