@@ -57,7 +57,7 @@ cd path/to/project
 npm install
 ```
 
-4. Build and run the project:
+5. Build and run the project:
 
 	- Use `start` for a local build. View the application in your browser with the URL `http://localhost:3000`
 
