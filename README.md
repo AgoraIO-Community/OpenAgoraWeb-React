@@ -139,7 +139,7 @@ export default Index
 
 The `Index` class is main class for the index page.
 
-![images/index.jpg](images/index.jpg)
+![screenshots/index.jpg](screenshots/index.jpg)
 
 ```JavaScript
 class Index extends React.Component {
@@ -816,7 +816,7 @@ The video profile selection menu is populated by the `options` layout variable. 
 
 The Meeting page is managed by the [src/pages/meeting/index.jsx](src/pages/meeting/index.jsx) file.
 
-![images/meeting.jpg](images/meeting.jpg)
+![screenshots/meeting.jpg](screenshots/meeting.jpg)
 
 The `Meeting` class defines the layout and controls for the meeting page.
 

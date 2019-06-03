@@ -1,5 +1,6 @@
 import React from 'react'
 import { merge } from 'lodash'
+import AgoraRTC from 'agora-rtc-sdk'
 
 import './canvas.css'
 import '../../assets/fonts/css/icons.css'
@@ -150,74 +151,6 @@ class AgoraCanvas extends React.Component {
     }, () => {
       console.log('Client failed to leave.')
     })
-  }
-
-  render() {
-    const style = {
-      display: 'grid',
-      gridGap: '10px',
-      alignItems: 'center',
-      justifyItems: 'center',
-      gridTemplateRows: 'repeat(12, auto)',
-      gridTemplateColumns: 'repeat(24, auto)'
-    }
-    const videoControlBtn = this.props.attendeeMode === 'video' ?
-      (<span
-        onClick={this.handleCamera}
-        className="ag-btn videoControlBtn"
-        title="Enable/Disable Video">
-        <i className="ag-icon ag-icon-camera"></i>
-        <i className="ag-icon ag-icon-camera-off"></i>
-      </span>) : ''
-
-    const audioControlBtn = this.props.attendeeMode !== 'audience' ?
-      (<span
-        onClick={this.handleMic}
-        className="ag-btn audioControlBtn"
-        title="Enable/Disable Audio">
-        <i className="ag-icon ag-icon-mic"></i>
-        <i className="ag-icon ag-icon-mic-off"></i>
-      </span>) : ''
-
-    const switchDisplayBtn = (
-      <span
-        onClick={this.switchDisplay}
-        className={this.state.streamList.length > 4 ? "ag-btn displayModeBtn disabled" : "ag-btn displayModeBtn"}
-        title="Switch Display Mode">
-        <i className="ag-icon ag-icon-switch-display"></i>
-      </span>
-    )
-    const hideRemoteBtn = (
-      <span
-        className={this.state.streamList.length > 4 || this.state.displayMode !== 'pip' ? "ag-btn disableRemoteBtn disabled" : "ag-btn disableRemoteBtn"}
-        onClick={this.hideRemote}
-        title="Hide Remote Stream">
-        <i className="ag-icon ag-icon-remove-pip"></i>
-      </span>
-    )
-    const exitBtn = (
-      <span
-        onClick={this.handleExit}
-        className={this.state.readyState ? 'ag-btn exitBtn' : 'ag-btn exitBtn disabled'}
-        title="Exit">
-        <i className="ag-icon ag-icon-leave"></i>
-      </span>
-    )
-
-    return (
-      <div id="ag-canvas" style={style}>
-        <div className="ag-btn-group">
-          {exitBtn}
-          {videoControlBtn}
-          {audioControlBtn}
-          {/* <span className="ag-btn shareScreenBtn" title="Share Screen">
-                        <i className="ag-icon ag-icon-screen-share"></i>
-                    </span> */}
-          {switchDisplayBtn}
-          {hideRemoteBtn}
-        </div>
-      </div>
-    )
   }
 
   streamInit = (uid, attendeeMode, videoProfile, config) => {
@@ -389,6 +322,74 @@ class AgoraCanvas extends React.Component {
       // redirect to index
       window.location.hash = ''
     }
+  }
+
+  render() {
+    const style = {
+      display: 'grid',
+      gridGap: '10px',
+      alignItems: 'center',
+      justifyItems: 'center',
+      gridTemplateRows: 'repeat(12, auto)',
+      gridTemplateColumns: 'repeat(24, auto)'
+    }
+    const videoControlBtn = this.props.attendeeMode === 'video' ?
+      (<span
+        onClick={this.handleCamera}
+        className="ag-btn videoControlBtn"
+        title="Enable/Disable Video">
+        <i className="ag-icon ag-icon-camera"></i>
+        <i className="ag-icon ag-icon-camera-off"></i>
+      </span>) : ''
+
+    const audioControlBtn = this.props.attendeeMode !== 'audience' ?
+      (<span
+        onClick={this.handleMic}
+        className="ag-btn audioControlBtn"
+        title="Enable/Disable Audio">
+        <i className="ag-icon ag-icon-mic"></i>
+        <i className="ag-icon ag-icon-mic-off"></i>
+      </span>) : ''
+
+    const switchDisplayBtn = (
+      <span
+        onClick={this.switchDisplay}
+        className={this.state.streamList.length > 4 ? "ag-btn displayModeBtn disabled" : "ag-btn displayModeBtn"}
+        title="Switch Display Mode">
+        <i className="ag-icon ag-icon-switch-display"></i>
+      </span>
+    )
+    const hideRemoteBtn = (
+      <span
+        className={this.state.streamList.length > 4 || this.state.displayMode !== 'pip' ? "ag-btn disableRemoteBtn disabled" : "ag-btn disableRemoteBtn"}
+        onClick={this.hideRemote}
+        title="Hide Remote Stream">
+        <i className="ag-icon ag-icon-remove-pip"></i>
+      </span>
+    )
+    const exitBtn = (
+      <span
+        onClick={this.handleExit}
+        className={this.state.readyState ? 'ag-btn exitBtn' : 'ag-btn exitBtn disabled'}
+        title="Exit">
+        <i className="ag-icon ag-icon-leave"></i>
+      </span>
+    )
+
+    return (
+      <div id="ag-canvas" style={style}>
+        <div className="ag-btn-group">
+          {exitBtn}
+          {videoControlBtn}
+          {audioControlBtn}
+          {/* <span className="ag-btn shareScreenBtn" title="Share Screen">
+                        <i className="ag-icon ag-icon-screen-share"></i>
+                    </span> */}
+          {switchDisplayBtn}
+          {hideRemoteBtn}
+        </div>
+      </div>
+    )
   }
 }
 
