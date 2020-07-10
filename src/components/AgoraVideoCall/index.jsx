@@ -172,19 +172,12 @@ class AgoraCanvas extends React.Component {
   componentWillUnmount() {
     this.client && this.client.unpublish(this.localStream);
     this.localStream && this.localStream.close();
+    if (this.state.stateSharing) {
+      this.shareClient && this.shareClient.unpublish(this.shareStream);
+      this.shareStream && this.shareStream.close();
+    }
     this.client &&
       this.client.leave(
-        () => {
-          console.log("Client succeed to leave.");
-        },
-        () => {
-          console.log("Client failed to leave.");
-        }
-      );
-    this.shareClient && this.shareClient.unpublish(this.shareStream);
-    this.shareStream && this.shareStream.close();
-    this.shareClient &&
-      this.shareClient.leave(
         () => {
           console.log("Client succeed to leave.");
         },
@@ -352,19 +345,12 @@ class AgoraCanvas extends React.Component {
     try {
       this.client && this.client.unpublish(this.localStream);
       this.localStream && this.localStream.close();
+      if (this.state.stateSharing) {
+        this.shareClient && this.shareClient.unpublish(this.shareStream);
+        this.shareStream && this.shareStream.close();
+      }
       this.client &&
         this.client.leave(
-          () => {
-            console.log("Client succeed to leave.");
-          },
-          () => {
-            console.log("Client failed to leave.");
-          }
-        );
-      this.shareClient && this.shareClient.unpublish(this.shareStream);
-      this.shareStream && this.shareStream.close();
-      this.shareClient &&
-        this.shareClient.leave(
           () => {
             console.log("Client succeed to leave.");
           },
