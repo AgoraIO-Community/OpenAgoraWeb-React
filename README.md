@@ -1,3 +1,6 @@
+# This repository has been deprecated, please use the demo provided by latest [agora react rtc sdk](https://github.com/AgoraIO-Extensions/agora-rtc-react)
+
+
 # Open Video Call React
 
 This tutorial describes how to add video chat to your ReactJS applications using the AgoraRTC SDK.
